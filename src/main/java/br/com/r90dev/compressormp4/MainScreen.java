@@ -13,11 +13,11 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
  
  
-public class TestJFilePicker extends JFrame {
+public class MainScreen extends JFrame {
  
     private JButton buttonConvert;
     private String pathFile ="";
-    public TestJFilePicker() {
+    public MainScreen() {
         super("*BETA* Otimizador de vídeos MP4");
         
         
@@ -107,7 +107,7 @@ public class TestJFilePicker extends JFrame {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new TestJFilePicker().setVisible(true);
+                new MainScreen().setVisible(true);
             }
         });
     }

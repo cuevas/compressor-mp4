@@ -9,7 +9,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>18</maven.compiler.source>
         <maven.compiler.target>18</maven.compiler.target>
-        <exec.mainClass>br.com.r90dev.compressormp4.TestJFilePicker</exec.mainClass>
+        <exec.mainClass>br.com.r90dev.compressormp4.MainScreen</exec.mainClass>
     </properties>
     <repositories>
 	
@@ -62,7 +62,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>br.com.r90dev.compressormp4.TestJFilePicker</mainClass>
+                            <mainClass>br.com.r90dev.compressormp4.MainScreen</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
