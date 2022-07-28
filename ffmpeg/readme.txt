@@ -1,0 +1,1 @@
+adicionar aqui as bibliotecas do https://ffmpeg.org/
