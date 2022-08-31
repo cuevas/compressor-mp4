@@ -73,6 +73,7 @@ public class CortaFFmpeg {
                 .addOutput(
                         UrlOutput.toPath(FileSystems.getDefault().getPath( splitFile.getAbsolutePath()+"/" + filename + "_PARTE_" + n + ".mp4" ))
                         .setPosition(0, TimeUnit.MILLISECONDS)
+                        .setDuration(currOutputDuration, TimeUnit.MILLISECONDS)
                         )
                 .setOverwriteOutput(true)
                 .execute();
