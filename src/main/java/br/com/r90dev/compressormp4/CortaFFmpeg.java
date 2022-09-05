@@ -15,6 +15,7 @@ import java.io.File;
 
 
 public class CortaFFmpeg {
+    public int intervalo = 10000;
     void split(String pathToFile, int partes) throws Exception
         {
             
@@ -60,6 +61,10 @@ public class CortaFFmpeg {
             {
                 long remaining = inputDuration - ( outputDuration * n );
                 
+                if(n+1 != partes){
+                    remaining+=intervalo;
+                }
+                
                 long currOutputDuration = remaining > outputDuration ? outputDuration : remaining;
                 
                 System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>Video " + (n+1) + ": " + currPoint + " / " + currOutputDuration);
@@ -68,12 +73,12 @@ public class CortaFFmpeg {
                 .addInput(
                         UrlInput.fromUrl( videoDir + filename )
                         .setPosition(currPoint, TimeUnit.MILLISECONDS)
-                        .setDuration(currOutputDuration, TimeUnit.MILLISECONDS)
+                        .setDuration(currOutputDuration + ((n+1 != partes) ? intervalo : 0), TimeUnit.MILLISECONDS)
                         )
                 .addOutput(
                         UrlOutput.toPath(FileSystems.getDefault().getPath( splitFile.getAbsolutePath()+"/" + filename + "_PARTE_" + n + ".mp4" ))
                         .setPosition(0, TimeUnit.MILLISECONDS)
-                        .setDuration(currOutputDuration, TimeUnit.MILLISECONDS)
+                        .setDuration(currOutputDuration + ((n+1 != partes) ? intervalo : 0), TimeUnit.MILLISECONDS)
                         )
                 .setOverwriteOutput(true)
                 .execute();
